@@ -105,6 +105,16 @@ def Json(seasons,index):
                'PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&'+ \
                'Season=%s&SeasonSegment=&SeasonType=Regular+Season&'+ \
                'ShotClockRange=&StarterBench=&TeamID=0&VsConference=&VsDivision=') % seasons
+               
+    elif index == 'Players_Bio':
+        url = ('https://stats.nba.com/stats/leaguedashplayerbiostats?'+ \
+               'College=&Conference=&Country=&DateFrom=&DateTo=&Division=&'+ \
+               'DraftPick=&DraftYear=&GameScope=&GameSegment=&Height=&LastNGames=0'+ \
+               '&LeagueID=00&Location=&Month=0&OpponentTeamID=0&Outcome=&PORound=0&'+ \
+               'PerMode=PerGame&Period=0&PlayerExperience=&PlayerPosition=&'+ \
+               'Season=%s&SeasonSegment=&SeasonType=Regular+Season&'+ \
+               'ShotClockRange=&StarterBench=&TeamID=0&VsConference=&'+ \
+               'VsDivision=&Weight=') % seasons
     else:
         print ("!@#$!@#$something wrong with the url!@#$!@#$")
     
@@ -131,7 +141,7 @@ def GetRowName(index):
                    "Defensive Rebounds","Assists","Steals","Blocks","Turnovers","Points","Efficiency"]
         '''
         
-    elif index == 'Team_General_Traditional' or 'Team_General_Advanced' or 'Team_General_Scoring' or 'Team_General_Defense':
+    elif index == 'Team_General_Traditional' or 'Team_General_Advanced' or 'Team_General_Scoring' or 'Team_General_Defense' or 'Players_Bio':
         RowName = [r for r in info["resultSets"][0]["headers"]]
     
     elif index == 'Team_Shooting':
@@ -165,7 +175,7 @@ def getData(seasons,index):
         if index == 'Official_Leader':
             for row in info["resultSet"]["rowSet"]:
                 writer.writerow(row)
-        elif index == 'Team_General_Traditional' or 'Team_General_Advanced' or 'Team_General_Scoring' or 'Team_General_Defense':
+        elif index == 'Team_General_Traditional' or 'Team_General_Advanced' or 'Team_General_Scoring' or 'Team_General_Defense' or 'Players_Bio':
             for row in info["resultSets"][0]["rowSet"]:
                 writer.writerow(row)
         elif index == 'Team_Shooting': # for fix
@@ -195,7 +205,7 @@ index = ["Official_Leader","Team_General_Traditional","Team_General_Advanced",
 索引数组
 '''
 index = ["Official_Leader","Team_General_Traditional","Team_General_Advanced",
-         "Team_General_Scoring","Team_General_Defense"]
+         "Team_General_Scoring","Team_General_Defense","Players_Bio"]
 
 '''
 #主函数
