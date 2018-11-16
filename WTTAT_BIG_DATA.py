@@ -1,6 +1,6 @@
 """
 Created on Sat Nov 10 14:25:18 2018
-Github : https://github.com/wtttat/NBA_STAT_BIG_DATA/
+Github : https://github.com/wttat/NBA_STAT_BIG_DATA/
 @author: wttat
 """
 import requests
